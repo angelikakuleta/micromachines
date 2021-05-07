@@ -9,5 +9,6 @@ namespace MicroMachines.Services.Catalog.Data.Repositories
     public interface IProductRepository : IBaseRepository<Product>
     {
         Task<IList<Product>> GetByCategory(Guid categoryId);
+        Task<IList<Product>> GetRange(IList<Guid> ids);
     }
 }

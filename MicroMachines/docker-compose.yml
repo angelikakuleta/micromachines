@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  micromachines.services.catalog:
+    image: ${DOCKER_REGISTRY-}micromachinesservicescatalog
+    build:
+      context: .
+      dockerfile: MicroMachines.Services.Catalog/Dockerfile
+
+  micromachines.services.identity:
+    image: ${DOCKER_REGISTRY-}micromachinesservicesidentity
+    build:
+      context: .
+      dockerfile: MicroMachines.Services.Identity/Dockerfile
+
+  micromachines.services.shopping:
+    image: ${DOCKER_REGISTRY-}micromachinesservicesshopping
+    build:
+      context: .
+      dockerfile: MicroMachines.Services.Shopping/Dockerfile

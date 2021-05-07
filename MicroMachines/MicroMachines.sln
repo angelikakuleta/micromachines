@@ -13,6 +13,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroMachines.Services.Iden
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroMachines.Services.Identity.Data", "MicroMachines.Services.Identity.Data\MicroMachines.Services.Identity.Data.csproj", "{180A8C34-0D93-4F16-9578-49E1382E4937}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroMachines.Services.Shopping", "MicroMachines.Services.Shopping\MicroMachines.Services.Shopping.csproj", "{92026C18-8B76-4483-BEDD-0E9D1E605726}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroMachines.Services.Shopping.Data", "MicroMachines.Services.Shopping.Data\MicroMachines.Services.Shopping.Data.csproj", "{594D8C69-D575-44EF-854B-99DFA6FDCFEB}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{315430A7-E635-41E6-9B1D-E251381F2565}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +45,18 @@ Global
 		{180A8C34-0D93-4F16-9578-49E1382E4937}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{180A8C34-0D93-4F16-9578-49E1382E4937}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{180A8C34-0D93-4F16-9578-49E1382E4937}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92026C18-8B76-4483-BEDD-0E9D1E605726}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92026C18-8B76-4483-BEDD-0E9D1E605726}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92026C18-8B76-4483-BEDD-0E9D1E605726}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92026C18-8B76-4483-BEDD-0E9D1E605726}.Release|Any CPU.Build.0 = Release|Any CPU
+		{594D8C69-D575-44EF-854B-99DFA6FDCFEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{594D8C69-D575-44EF-854B-99DFA6FDCFEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{594D8C69-D575-44EF-854B-99DFA6FDCFEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{594D8C69-D575-44EF-854B-99DFA6FDCFEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{315430A7-E635-41E6-9B1D-E251381F2565}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{315430A7-E635-41E6-9B1D-E251381F2565}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{315430A7-E635-41E6-9B1D-E251381F2565}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{315430A7-E635-41E6-9B1D-E251381F2565}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

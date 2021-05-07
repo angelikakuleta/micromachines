@@ -56,6 +56,14 @@ namespace MicroMachines.Services.Catalog.Data.Repositories
                 .ToListAsync();
         }
 
+        public async Task<IList<Product>> GetRange(IList<Guid> ids)
+        {
+            return await _context.Products
+                .AsNoTracking()
+                .Where(x => ids.Contains(x.Id))
+                .ToListAsync();
+        }
+
         public async Task<Product> GetSingle(Expression<Func<Product, bool>> condition)
         {
             return (await _context.Products

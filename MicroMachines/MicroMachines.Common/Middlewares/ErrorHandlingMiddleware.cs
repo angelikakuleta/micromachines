@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using MicroMachines.Common.CustomExceptions;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
@@ -19,6 +20,11 @@ namespace MicroMachines.Common.Middlewares
             try
             {
                 await next.Invoke(context);
+            }
+            catch (BadRequestException e)
+            {
+                context.Response.StatusCode = 400;
+                await context.Response.WriteAsync(e.Message);
             }
             catch (Exception e)
             {
