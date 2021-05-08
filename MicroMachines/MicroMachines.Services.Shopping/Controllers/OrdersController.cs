@@ -46,18 +46,13 @@ namespace MicroMachines.Services.Identity.Controllers
             var orderItemDtos = await _catalogClient.GetOrderItems(createOrderDto.Itenarary);
             var order = createOrderDto.ToOrder(orderItemDtos);
 
-            if (await ChangeStockSupplies(createOrderDto.Itenarary))
+            if (!await _catalogClient.ChangeStockSupplies(createOrderDto.Itenarary))
             {
                 order.Status = OrderStatus.Denied;
             }
 
             await _orderRepository.Add(order);
             return CreatedAtAction(nameof(Get), order.Id, order.ToDto());
-        }
-
-        private Task<bool> ChangeStockSupplies(IEnumerable<CreateOrderItemDto> itenarary)
-        {
-            return Task.FromResult(false);
         }
     }
 }

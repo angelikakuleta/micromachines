@@ -36,8 +36,7 @@ namespace MicroMachines.Services.Catalog.Controllers
             return Ok(product);
         }
 
-        [HttpPost]
-        [Route("~/api/orderItems")]
+        [HttpPost("order")]
         public async Task<ActionResult<IEnumerable<OrderItemDto>>> OrderItems([FromBody] IEnumerable<CreateOrderItemDto> itenarary)
         {
             var orderItems = await Task.WhenAll(itenarary.Select(async el =>

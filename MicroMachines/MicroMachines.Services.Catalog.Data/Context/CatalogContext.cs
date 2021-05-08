@@ -12,6 +12,8 @@ namespace MicroMachines.Services.Catalog.Data.Context
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Stock> Stocks { get; set; }
+        public DbSet<ItemBalance> ItemBalances { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

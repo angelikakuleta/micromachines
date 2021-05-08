@@ -23,13 +23,26 @@ namespace MicroMachines.Services.Shopping.Clients
         {
             var json = JsonConvert.SerializeObject(itenarary);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
-            var result = await _httpClient.PostAsync("api/orderItems", data);
+            var result = await _httpClient.PostAsync("api/products/order", data);
             var content = await result.Content.ReadAsStringAsync();
 
             if (result.StatusCode == HttpStatusCode.BadRequest) throw new BadRequestException(content);
             if (result.StatusCode != HttpStatusCode.OK) throw new Exception();
                         
             return JsonConvert.DeserializeObject<IReadOnlyCollection<OrderItemDto>>(content);
+        }
+
+        internal async Task<bool> ChangeStockSupplies(IEnumerable<CreateOrderItemDto> itenarary)
+        {
+            var json = JsonConvert.SerializeObject(itenarary);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+            var result = await _httpClient.PutAsync("api/stocks/purchase/", data);
+            var content = await result.Content.ReadAsStringAsync();
+
+            if (result.StatusCode == HttpStatusCode.BadRequest) return false;
+            if (result.StatusCode != HttpStatusCode.OK) throw new Exception();
+
+            return true;
         }
     }
 }

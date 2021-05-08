@@ -34,6 +34,7 @@ namespace MicroMachines.Services.Catalog
 
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IStockRepository, StockRepository>();
 
             services.AddScoped<ErrorHandlingMiddleware>();
             services.AddScoped<RequestResponseLoggingMiddleware>();
