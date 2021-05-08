@@ -54,5 +54,27 @@ namespace MicroMachines.Services.Identity.Controllers
             await _orderRepository.Add(order);
             return CreatedAtAction(nameof(Get), order.Id, order.ToDto());
         }
+
+        [HttpPost("{id:Guid}/pay")]
+        public async Task<ActionResult<OrderDto>> Pay(Guid id, [FromBody] CreateTransactionDto createTransactionDto)
+        {
+            var order = await _orderRepository.GetSingle(x => x.Id == id);
+            if (order == null) return NotFound();
+
+            if (order.Status != OrderStatus.Pending) return BadRequest("The order is incomplete or has already been paid for.");
+
+            var transaction = await MakeTransfer(createTransactionDto);
+            if (transaction == null) BadRequest("This transaction cannot be completed");
+
+            order.Transaction = transaction;
+            order.Status = OrderStatus.Confirmed;
+            await _orderRepository.Edit(order);
+            return CreatedAtAction(nameof(Get), order.Id, order.ToDto());
+        }
+
+        private Task<Transaction> MakeTransfer(CreateTransactionDto createTransactionDto)
+        {
+            return Task.FromResult<Transaction>(null);
+        }
     }
 }
